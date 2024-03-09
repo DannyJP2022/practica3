@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Arboles</title>
+
+    </head>
+    <body>
+        <div>
+            <h2>Árboles</h2>
+            <a th:href="@{/agregar}">Agregar Árbol</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Altura</th>
+                        <th>Anchura</th>
+                        <th>Imagen</th>
+                        <th>Tipo de Flor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="arbol : ${arboles}">
+                        <td th:text="${arbol.nombre}">Nombre</td>
+                        <td th:text="${arbol.altura}">Altura</td>
+                        <td th:text="${arbol.anchura}">Anchura</td>
+                        <td><img th:src="${arbol.imagen}" alt="Imagen de árbol" style="height: 50px;"/></td>
+                        <td th:text="${arbol.tipoDeFlor}">Tipo de Flor</td>
+                        <td>
+                            <a th:href="@{/editar/{id}(id=${arbol.idArbol})}">Editar</a> |
+                            <a th:href="@{/eliminar/{id}(id=${arbol.idArbol})}">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

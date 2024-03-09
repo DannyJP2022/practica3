@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Agregar Arbol</title>
+    </head>
+    <body>
+        <h2>Agregar Árbol</h2>
+        <form th:action="@{/arboles}" th:method="post" th:object="${arbol}">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:value="*{nombre}"/><br/>
+
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" name="altura" th:value="*{altura}"/><br/>
+
+            <label for="anchura">Anchura:</label>
+            <input type="number" id="anchura" name="anchura" th:value="*{anchura}"/><br/>
+
+            <label for="imagen">URL Imagen:</label>
+            <input type="text" id="imagen" name="imagen" th:value="*{imagen}"/><br/>
+
+            <label for="tipoDeFlor">Tipo de Flor:</label>
+            <input type="text" id="tipoDeFlor" name="tipoDeFlor" th:value="*{tipoDeFlor}"/><br/>
+
+            <button type="submit">Guardar</button>
+        </form>
+        <a th:href="@{/}">Volver a la lista</a>
+    </body>
+</html>
