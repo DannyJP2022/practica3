@@ -1,13 +1,16 @@
 package com.practica01.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.io.Serializable;
+import lombok.Data;
 
+@Data
 @Entity
-public class Arbol {
+@Table(name = "arbol")
+public class Arbol implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idArbol;
