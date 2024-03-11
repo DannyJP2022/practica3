@@ -1,32 +1,92 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Agregar Arbol</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Editar Árbol</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Encabezado</h1>
+    </header>
+    <form th:action="@{/arboles/{id}(id=${arbol.idArbol})}" th:method="post" th:object="${arbol}">
         <h2>Editar Árbol</h2>
-        <form th:action="@{/arboles/{id}(id=${arbol.idArbol})}" th:method="post" th:object="${arbol}">
-            <input type="hidden" name="_method" value="put" />
+        <input type="hidden" name="_method" value="put" />
 
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" th:value="*{nombre}"/><br/>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" th:value="*{nombre}"/>
 
-            <label for="altura">Altura:</label>
-            <input type="number" id="altura" name="altura" th:value="*{altura}"/><br/>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" name="altura" th:value="*{altura}"/>
 
-            <label for="anchura">Anchura:</label>
-            <input type="number" id="anchura" name="anchura" th:value="*{anchura}"/><br/>
+        <label for="anchura">Anchura:</label>
+        <input type="number" id="anchura" name="anchura" th:value="*{anchura}"/>
 
-            <label for="imagen">URL Imagen:</label>
-            <input type="text" id="imagen" name="imagen" th:value="*{imagen}"/><br/>
+        <label for="imagen">URL Imagen:</label>
+        <input type="text" id="imagen" name="imagen" th:value="*{imagen}"/>
 
-            <label for="tipoDeFlor">Tipo de Flor:</label>
-            <input type="text" id="tipoDeFlor" name="tipoDeFlor" th:value="*{tipoDeFlor}"/><br/>
+        <label for="tipoDeFlor">Tipo de Flor:</label>
+        <input type="text" id="tipoDeFlor" name="tipoDeFlor" th:value="*{tipoDeFlor}"/>
 
-            <button type="submit">Actualizar</button>
-        </form>
-        <a th:href="@{/}">Volver a la lista</a>
-    </body>
+        <button type="submit">Actualizar</button>
+    </form>
+    <footer>
+        <p>&copy; 2024 Todos los derechos reservados - Mi Empresa <span>&#169;</span></p>
+    </footer>
+</body>
 </html>
+
